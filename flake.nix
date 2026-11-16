@@ -36,6 +36,7 @@
           cuda-tile
           cupy
           pytest
+          torch
         ]);
       in {
         default = pkgs.mkShell {
