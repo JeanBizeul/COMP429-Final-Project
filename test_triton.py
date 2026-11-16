@@ -19,14 +19,13 @@ def vector_add(
     tl.store(c + offsets, x + y, mask=mask)
 
 
-
 def test():
     n = 4096
     a = torch.rand(n, device="cuda")
     b = torch.rand(n, device="cuda")
     c = torch.empty_like(a)
 
-    vector_add[(triton.cdiv(n, 256),)](a, b, c, n, 256) # pyright: ignore[reportArgumentType]
+    vector_add[(triton.cdiv(n, 256),)](a, b, c, n, 256)  # pyright: ignore[reportArgumentType]
 
     torch.testing.assert_close(c, a + b)
     print("Triton vector_add passed!")

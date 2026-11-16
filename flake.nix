@@ -37,6 +37,7 @@
           cupy
           pytest
           torch
+          ruff
         ]);
       in {
         default = pkgs.mkShell {
